@@ -6,6 +6,7 @@
 <title>Aleksandr Shusterman, AI Implementation Project Manager</title>
 <meta name="description" content="Portfolio of Aleksandr Shusterman, AI implementation project manager (PMP, PMI-CPMAI). Interactive demos and AI tools that show how I scope, gate, and ship AI projects.">
 <meta name="author" content="Aleksandr Shusterman">
+<meta name="theme-color" content="#060C1C">
 <link rel="canonical" href="https://ashusterman1988.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ashusterman1988.github.io/">
@@ -16,125 +17,190 @@
 <meta property="og:image:height" content="627">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ashusterman1988.github.io/img/share.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2340'/%3E%3Crect x='22' y='22' width='20' height='20' transform='rotate(45 32 32)' fill='%23E8A317'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060C1C'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%2359C9E8' stroke-width='4'/%3E%3Crect x='26' y='9' width='12' height='12' transform='rotate(45 32 15)' fill='%23F2B544'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --mist:#EDF1F5;      /* page */
-  --paper:#F8FAFC;     /* raised surfaces */
-  --ink:#0F2340;       /* text, dark panels */
-  --steel:#55667E;     /* secondary text */
-  --rule:#CBD5E1;      /* lines */
-  --gate:#E8A317;      /* gate diamonds, primary action */
-  --go:#1E9E6A;        /* gate passed */
-  --link:#0B6E99;
+  --void:#060C1C;      /* page */
+  --deep:#0B1733;      /* panels */
+  --cyan:#59C9E8;      /* structure, links */
+  --amber:#F2B544;     /* gates, primary action */
+  --green:#5EE0A0;     /* gate passed */
+  --text:#E8EEF5;
+  --muted:#9FB0C5;
+  --line:rgba(89,201,232,.22);
   --display:'Archivo',system-ui,sans-serif;
   --body:'IBM Plex Sans',system-ui,sans-serif;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--mist);color:var(--ink);font:400 17px/1.6 var(--body)}
-a{color:var(--link)}
-:focus-visible{outline:3px solid var(--gate);outline-offset:3px;border-radius:4px}
-.wrap{width:min(1120px,100% - 48px);margin:0 auto}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--void);color:var(--text);font:400 17px/1.6 var(--body);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(89,201,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(89,201,232,.045) 1px,transparent 1px);
+  background-size:48px 48px;mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 80%)}
+a{color:var(--cyan)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1180px,100% - 48px);margin:0 auto;position:relative;z-index:1}
 
 /* hero */
-header{padding:72px 0 0}
-.top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
-.name{font:900 clamp(44px,7.4vw,96px)/.92 var(--display);font-stretch:118%;letter-spacing:-.02em;margin:0}
-.role{font:600 clamp(19px,2vw,24px)/1.3 var(--display);font-stretch:100%;margin:18px 0 6px}
-.creds{color:var(--steel);font-size:15px;margin:0}
-.contact{display:flex;gap:10px;flex-wrap:wrap;padding-top:8px}
-.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--body);text-decoration:none;padding:11px 18px;border-radius:10px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
-.btn:hover{background:var(--ink);color:#fff}
-.btn.primary{background:var(--gate);border-color:var(--gate);color:var(--ink)}
-.btn.primary:hover{background:#d6950f;border-color:#d6950f;color:var(--ink)}
-.intro{max-width:66ch;font-size:19px;line-height:1.6;margin:34px 0 0}
-.intro strong{font-weight:600}
+.hero{position:relative;min-height:min(100vh,900px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:24px;padding:40px 0 64px}
+.hero::after{content:"";position:absolute;right:-10%;top:5%;width:70%;height:90%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(89,201,232,.16),transparent 70%),radial-gradient(closest-side at 70% 60%,rgba(140,124,255,.12),transparent 70%)}
+.name{font:900 clamp(46px,7vw,104px)/.9 var(--display);font-stretch:122%;letter-spacing:-.02em;margin:0;color:#fff}
+.role{font:600 clamp(19px,2vw,25px)/1.3 var(--display);margin:22px 0 6px;color:var(--cyan)}
+.creds{color:var(--muted);font-size:15px;margin:0}
+.cred{color:#fff;text-decoration:none;border-bottom:1.5px solid var(--green);padding-bottom:1px}
+.cred:hover{color:var(--green)}
+.cred::after{content:'';display:inline-block;width:7px;height:7px;margin:0 2px 2px 6px;transform:rotate(45deg);background:var(--green);box-shadow:0 0 8px var(--green)}
+.verify{display:block;font-size:13px;color:#6F84A0;margin-top:4px}
+.intro{max-width:52ch;font-size:18px;line-height:1.65;margin:26px 0 0;color:#C9D6E4}
+.intro strong{color:#fff;font-weight:600}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--body);text-decoration:none;padding:12px 20px;border-radius:12px;border:1px solid var(--line);color:var(--text);background:rgba(11,23,51,.6);backdrop-filter:blur(6px);cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s}
+.btn:hover{border-color:var(--cyan);box-shadow:0 0 24px rgba(89,201,232,.25)}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:#0B1733}
+.btn.primary:hover{box-shadow:0 0 28px rgba(242,181,68,.45)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 26px;margin:34px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14px}
+.facts b{display:block;font:800 26px/1.1 var(--display);font-stretch:110%;color:#fff}
 
-/* gate track: the signature */
-.track{margin:52px 0 0;position:relative}
-.track ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);position:relative}
-.track ol::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--rule)}
-.track ol::after{content:"";position:absolute;left:0;top:9px;height:2px;width:var(--fill,0%);background:var(--go);transition:width 2.4s cubic-bezier(.4,0,.2,1)}
-.track li{position:relative;padding-top:30px;font:600 14px/1.3 var(--display);font-stretch:96%}
-.track li span{display:block;font:400 13px/1.4 var(--body);color:var(--steel);margin-top:2px;padding-right:12px}
-.track li::before{content:"";position:absolute;left:2px;top:3px;width:12px;height:12px;transform:rotate(45deg);background:var(--mist);border:2px solid var(--steel);transition:background .3s,border-color .3s}
-.track li.on::before{background:var(--go);border-color:var(--go)}
-.trackcap{font-size:14px;color:var(--steel);margin:14px 0 0}
+.stage3d{position:relative;overflow:hidden;height:min(78vh,700px);min-height:420px;margin-right:-2vw}
+#ring{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+#ring:active{cursor:grabbing}
+.glabels{position:absolute;inset:0;pointer-events:none}
+.glabels span{position:absolute;transform:translate(-50%,0);font:600 13px var(--display);white-space:nowrap;color:#C9D6E4;text-shadow:0 1px 8px #060C1C;transition:color .3s}
+.glabels span.on{color:var(--green)}
+.glabels span.cur{color:var(--amber)}
+.ringcap{position:absolute;left:0;right:2vw;bottom:0;text-align:center;font-size:13.5px;color:var(--muted)}
+.ringcap b{color:var(--text);font-weight:600}
+.fallback{position:absolute;inset:0;display:none;place-items:center}
+.nogl .fallback{display:grid}.nogl #ring{display:none}
 
 /* projects */
-main{padding:80px 0 40px}
-h2{font:800 clamp(28px,3.4vw,40px)/1.1 var(--display);font-stretch:112%;margin:0 0 8px}
-.lede{color:var(--steel);margin:0 0 40px;max-width:60ch}
-.proj{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;padding:40px 0;border-top:1px solid var(--rule)}
-.shot{display:block;border-radius:14px;overflow:hidden;background:var(--ink);aspect-ratio:12/7;box-shadow:0 1px 0 rgba(15,35,64,.06),0 18px 40px -18px rgba(15,35,64,.45)}
+main{padding:40px 0 30px}
+.sechead{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+h2{font:800 clamp(30px,3.6vw,46px)/1.05 var(--display);font-stretch:116%;margin:0;color:#fff}
+.lede{color:var(--muted);margin:0;max-width:52ch}
+.proj{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:44px;align-items:center;padding:34px;margin:0 0 28px;border-radius:22px;
+  background:linear-gradient(160deg,rgba(17,34,66,.78),rgba(9,18,40,.78));border:1px solid var(--line);box-shadow:0 30px 80px -40px rgba(0,0,0,.8)}
+.proj::before{content:"";position:absolute;inset:-1px;border-radius:22px;padding:1px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(89,201,232,.55),transparent 35%,transparent 65%,rgba(242,181,68,.45));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.shot{display:block;border-radius:14px;overflow:hidden;aspect-ratio:12/7;background:#0B1733;border:1px solid rgba(89,201,232,.3);transform:perspective(1200px) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .25s ease-out,box-shadow .3s;box-shadow:0 20px 50px -20px rgba(0,0,0,.9)}
+.shot:hover{box-shadow:0 24px 60px -18px rgba(0,0,0,.9),0 0 40px rgba(89,201,232,.22)}
 .shot img,.shot svg{display:block;width:100%;height:100%;object-fit:cover}
-.kind{font:600 14px var(--body);color:var(--link);margin:0 0 6px}
-.proj h3{font:800 clamp(24px,2.5vw,30px)/1.15 var(--display);font-stretch:108%;margin:0 0 12px}
-.proj dl{margin:0 0 18px;display:grid;gap:8px}
-.proj dt{font:600 15px var(--body);display:inline}
-.proj dd{display:inline;margin:0;color:#24364F}
-.proj dl div{font-size:16px;line-height:1.55}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px;padding:0;list-style:none}
-.tags li{font-size:13px;padding:3px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--rule);color:var(--steel)}
-.acts{display:flex;gap:10px;flex-wrap:wrap}
 .proj.flip .shot{order:2}
+.kind{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--body);color:var(--cyan);margin:0 0 8px}
+.kind::before{content:"";width:9px;height:9px;transform:rotate(45deg);background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.proj h3{font:800 clamp(25px,2.6vw,32px)/1.12 var(--display);font-stretch:110%;margin:0 0 14px;color:#fff}
+.proj dl{margin:0 0 18px;display:grid;gap:9px}
+.proj dl div{font-size:16px;line-height:1.55;color:#C9D6E4}
+.proj dt{display:inline;font-weight:600;color:#fff}
+.proj dd{display:inline;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22px;padding:0;list-style:none}
+.tags li{font-size:13px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:#BFEFFF;background:rgba(89,201,232,.07)}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
 
-/* footer */
-footer{background:var(--ink);color:#DCE5EF;margin-top:40px;padding:56px 0 40px}
-footer h2{color:#fff}
-footer p{max-width:60ch;margin:0 0 22px}
-footer .btn{border-color:#DCE5EF;color:#fff}
-footer .btn:hover{background:#fff;color:var(--ink)}
-footer .btn.primary{color:var(--ink);border-color:var(--gate)}
-.mail{font:600 18px var(--body);color:#fff;text-decoration:none;border-bottom:1.5px solid var(--gate)}
-.fine{font-size:13px;color:#8FA2BA;margin-top:40px}
-.copied{font-size:14px;color:var(--gate);margin-left:4px}
 
-@media (max-width:820px){
-  header{padding-top:44px}
-  .proj,.proj.flip{grid-template-columns:1fr;gap:20px}
+/* work results */
+.work{padding:30px 0 10px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.story{position:relative;padding:28px 30px 26px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(170deg,rgba(17,34,66,.7),rgba(9,18,40,.7))}
+.story .res{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 6px}
+.story .res b{font:900 clamp(34px,4vw,52px)/1 var(--display);font-stretch:112%;color:var(--green);text-shadow:0 0 28px rgba(94,224,160,.35)}
+.story .res span{color:var(--muted);font-size:15px}
+.story h3{font:800 23px/1.2 var(--display);font-stretch:108%;color:#fff;margin:14px 0 12px}
+.story dl{margin:0 0 16px;display:grid;gap:8px}
+.story dl div{font-size:15.5px;line-height:1.55;color:#C9D6E4}
+.story dt{display:inline;font-weight:600;color:#fff}.story dd{display:inline;margin:0}
+.status{display:inline-block;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid rgba(242,181,68,.5);color:var(--amber);margin-left:4px}
+@media (max-width:900px){.wgrid{grid-template-columns:1fr}.story{padding:22px}}
+
+/* contact */
+.contact{margin:70px 0 0;padding:56px 0 46px;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 0%,rgba(89,201,232,.10),transparent 60%)}
+.contact p{max-width:58ch;margin:14px 0 24px;color:#C9D6E4}
+.mailrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 26px}
+.mail{font:700 clamp(19px,2.2vw,26px) var(--display);color:#fff;text-decoration:none;border-bottom:2px solid var(--amber)}
+.copied{font-size:14px;color:var(--green)}
+.fine{font-size:13px;color:#6F84A0;margin-top:44px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0;padding-top:20px}
+  .stage3d{height:340px;min-height:0;margin:0 -24px}
+  .ringcap{right:0}
+  .proj,.proj.flip{grid-template-columns:1fr;gap:22px;padding:20px}
   .proj.flip .shot{order:0}
-  .track ol{grid-template-columns:repeat(3,1fr);row-gap:18px}
-  .track ol::before,.track ol::after{display:none}
 }
-@media (prefers-reduced-motion:reduce){.track ol::after,.track li::before{transition:none}}
+@media (prefers-reduced-motion:reduce){.shot{transition:none}}
 </style>
 </head>
 <body>
-<header class="wrap">
-  <div class="top">
+<div class="wrap">
+  <header class="hero">
     <div>
       <h1 class="name">Aleksandr<br>Shusterman</h1>
       <p class="role">AI Implementation Project Manager</p>
-      <p class="creds">PMP, PMI-CPMAI, CSM, Microsoft Azure AI Fundamentals</p>
+      <p class="creds"><a class="cred" href="https://www.credly.com/badges/64f7c875-2963-4872-8dfb-b8e9fdcd9631/public_url" target="_blank" rel="noopener" title="Verify on Credly">PMP</a>, <a class="cred" href="https://www.credly.com/badges/ef3bcb17-1112-4c7b-a471-9afc6d7c5777/public_url" target="_blank" rel="noopener" title="Verify on Credly">PMI-CPMAI</a>, CSM, Microsoft Azure AI Fundamentals<span class="verify">Click PMP or PMI-CPMAI to verify on Credly.</span></p>
+      <p class="intro">I take enterprise customers from kickoff to go-live, and I run AI projects the same way: <strong>a business problem first, the data checked before anything gets built, and a go or no-go call at every stage.</strong> I'm not a developer by background. I build these projects with AI as my coding partner.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See the projects</a>
+        <a class="btn" href="resume/Aleksandr-Shusterman-Resume.pdf" download>Download resume (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/aleksandrshusterman" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <ul class="facts">
+        <li><b>10+ years</b>in implementation</li>
+        <li><b>16</b>implementations since 2024</li>
+        <li><b>97%</b>customer satisfaction</li>
+      </ul>
     </div>
-    <div class="contact">
-      <a class="btn" href="https://www.linkedin.com/in/aleksandrshusterman" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn primary" href="#contact">Get in touch</a>
+    <div class="stage3d" aria-label="A 3D ring of the six PMI-CPMAI stages, with a project moving through each gate">
+      <canvas id="ring" aria-hidden="true"></canvas>
+      <div class="glabels" id="glabels" aria-hidden="true"></div>
+      <div class="fallback" aria-hidden="true">
+        <svg viewBox="0 0 400 260" width="80%"><ellipse cx="200" cy="130" rx="170" ry="70" fill="none" stroke="#59C9E8" stroke-opacity=".6" stroke-width="2"/>
+          <g fill="#5EE0A0"><circle cx="30" cy="130" r="9"/><circle cx="115" cy="69" r="9"/><circle cx="285" cy="69" r="9"/><circle cx="370" cy="130" r="9"/><circle cx="285" cy="191" r="9"/></g><circle cx="115" cy="191" r="12" fill="#F2B544"/></svg>
+      </div>
+      <p class="ringcap"><b>The six PMI-CPMAI stages.</b> Each one ends with a go or no-go gate. Drag to turn the ring.</p>
     </div>
-  </div>
-  <p class="intro">I take enterprise customers from kickoff to go-live, and now I run AI projects the same way: <strong>a business problem first, the data checked before anything gets built, and a go or no-go call at every stage.</strong> These projects show that approach. I'm not a developer by background; I build them with AI as my coding partner.</p>
+  </header>
+</div>
 
-  <div class="track" aria-label="The six stages every AI project moves through">
-    <ol id="gates">
-      <li>Business<span>Is AI the right tool?</span></li>
-      <li>Data<span>Is the data there?</span></li>
-      <li>Preparation<span>Is it ready to learn from?</span></li>
-      <li>Build<span>Build, buy, or partner</span></li>
-      <li>Evaluate<span>Does it work on real work?</span></li>
-      <li>Operate<span>Will it keep working?</span></li>
-    </ol>
-    <p class="trackcap">The six stages of the PMI-CPMAI method. Each one ends with a gate.</p>
+<section class="wrap work" id="work" aria-labelledby="workh">
+  <div class="sechead">
+    <h2 id="workh">Results from my day job</h2>
+    <p class="lede">Two AI projects from my current role in global logistics. Customer names are left out.</p>
   </div>
-</header>
+  <div class="wgrid">
+    <article class="story">
+      <p class="res"><b>1 to 3 hours</b><span>instead of 1 to 2 days per document</span></p>
+      <h3>AI agents that draft implementation documents</h3>
+      <dl>
+        <div><dt>The problem: </dt><dd>every new implementation needed an SOP, a kickoff deck, and executive presentations, and each one took 1 to 2 days to write from scratch.</dd></div>
+        <div><dt>What I did: </dt><dd>built Claude agents connected to a knowledge base of our past SOPs, project plans, and customer documents, so every draft starts from what has already worked.</dd></div>
+        <div><dt>The result: </dt><dd>each document now takes 1 to 3 hours, which gives me back about 10 hours a week.</dd></div>
+      </dl>
+      <ul class="tags"><li>Claude agents</li><li>Knowledge base (RAG)</li><li>Delivery speed</li></ul>
+    </article>
+    <article class="story">
+      <p class="res"><b>1,800 hours</b><span>a month in freed capacity, about 10 to 11 FTE</span></p>
+      <h3>Automation reset for a global consumer brand <span class="status">In progress</span></h3>
+      <dl>
+        <div><dt>The problem: </dt><dd>a global brand shipping across 5 origins and 13 destination regions had a set of automation ideas from a hackathon, but no plan to turn them into real change.</dd></div>
+        <div><dt>What I'm doing: </dt><dd>leading the executive-sponsored reset that turns those ideas into a phased operating model, and using AI to translate training materials for each region.</dd></div>
+        <div><dt>The value case: </dt><dd>1,800 hours a month in freed capacity once the phases are in place.</dd></div>
+      </dl>
+      <ul class="tags"><li>Executive sponsorship</li><li>Value case</li><li>Phased rollout</li><li>AI translation</li></ul>
+    </article>
+  </div>
+</section>
 
 <main class="wrap" id="projects">
-  <h2>Projects</h2>
-  <p class="lede">Each one is live. Open it, click around, and see how I think about AI delivery.</p>
+  <div class="sechead">
+    <h2>Projects</h2>
+    <p class="lede">Each one is live. Open it, click around, and see how I think about AI delivery.</p>
+  </div>
 
   <article class="proj">
     <a class="shot" href="https://ashusterman1988.github.io/ai-project-control-room/" aria-label="Open the AI Project Control Room">
@@ -159,7 +225,7 @@ footer .btn.primary{color:var(--ink);border-color:var(--gate)}
   <article class="proj flip">
     <a class="shot" href="https://claude.ai/public/artifacts/5f52607b-5ecc-412c-a139-c49c01fb7907" target="_blank" rel="noopener" aria-label="Open the AI Implementation Planner">
       <svg viewBox="0 0 600 350" role="img" aria-label="Illustration of a phased implementation plan with gates and a RACI grid">
-        <rect width="600" height="350" fill="#0F2340"/>
+        <rect width="600" height="350" fill="#0B1733"/>
         <g font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#9FB3CB">
           <text x="32" y="44" fill="#fff" font-size="15" font-weight="600">Implementation plan</text>
           <text x="32" y="64">Enterprise SaaS rollout, 14 weeks</text>
@@ -215,7 +281,7 @@ footer .btn.primary{color:var(--ink);border-color:var(--gate)}
   <article class="proj">
     <a class="shot" href="https://logistics-world-events-for-maersk-t.vercel.app/" target="_blank" rel="noopener" aria-label="Open Logistics Pulse">
       <svg viewBox="0 0 600 350" role="img" aria-label="Illustration of a news dashboard with impact ratings and a pulse line">
-        <rect width="600" height="350" fill="#0F2340"/>
+        <rect width="600" height="350" fill="#0B1733"/>
         <g font-family="IBM Plex Sans, sans-serif">
           <text x="32" y="44" fill="#fff" font-size="15" font-weight="600">Logistics Pulse</text>
           <text x="32" y="64" fill="#9FB3CB" font-size="11">Live supply chain news, with the impact on our lanes</text>
@@ -253,13 +319,18 @@ footer .btn.primary{color:var(--ink);border-color:var(--gate)}
   </article>
 </main>
 
-<footer id="contact">
+<footer class="contact" id="contact">
   <div class="wrap">
     <h2>Let's talk</h2>
     <p>I'm looking for remote AI implementation and deployment roles. If this is how you want AI projects run on your team, I'd like to hear about it.</p>
-    <p><a class="mail" href="mailto:ashusterman1988@gmail.com">ashusterman1988@gmail.com</a> <button class="btn" id="copy" type="button" style="padding:6px 12px;font-size:14px;margin-left:8px">Copy</button><span class="copied" id="copied" aria-live="polite"></span></p>
+    <div class="mailrow">
+      <a class="mail" href="mailto:ashusterman1988@gmail.com">ashusterman1988@gmail.com</a>
+      <button class="btn" id="copy" type="button" style="padding:7px 14px;font-size:14px">Copy email</button>
+      <span class="copied" id="copied" aria-live="polite"></span>
+    </div>
     <div class="acts">
       <a class="btn primary" href="https://www.linkedin.com/in/aleksandrshusterman" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn" href="resume/Aleksandr-Shusterman-Resume.pdf" download>Download resume (PDF)</a>
       <a class="btn" href="https://github.com/ashusterman1988">GitHub</a>
     </div>
     <p class="fine">All demo cases and numbers are fictional. PMI-CPMAI is a certification of the Project Management Institute; these projects are my own and not endorsed by PMI.</p>
@@ -267,16 +338,77 @@ footer .btn.primary{color:var(--ink);border-color:var(--gate)}
 </footer>
 
 <script>
-(function(){
-  var gates=[].slice.call(document.querySelectorAll('#gates li')),ol=document.getElementById('gates');
-  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function light(){gates.forEach(function(g,i){setTimeout(function(){g.classList.add('on')},reduce?0:350+i*400)});ol.style.setProperty('--fill','100%')}
-  if(reduce){light()}else{setTimeout(light,250)}
-  var b=document.getElementById('copy'),c=document.getElementById('copied');
-  b.addEventListener('click',function(){var e='ashusterman1988@gmail.com';
-    function done(){c.textContent='Copied';setTimeout(function(){c.textContent=''},1800)}
-    if(navigator.clipboard){navigator.clipboard.writeText(e).then(done,function(){c.textContent=e})}else{c.textContent=e}});
-})();
+/* copy email */
+(function(){var b=document.getElementById('copy'),c=document.getElementById('copied');
+ b.addEventListener('click',function(){var e='ashusterman1988@gmail.com';function done(){c.textContent='Copied';setTimeout(function(){c.textContent=''},1800)}
+  if(navigator.clipboard){navigator.clipboard.writeText(e).then(done,function(){c.textContent=e})}else{c.textContent=e}})})();
+/* tilt project pictures toward the pointer */
+(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ document.querySelectorAll('.shot').forEach(function(s){
+  s.addEventListener('pointermove',function(e){var r=s.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;s.style.setProperty('--ry',(x*8)+'deg');s.style.setProperty('--rx',(-y*6)+'deg')});
+  s.addEventListener('pointerleave',function(){s.style.setProperty('--ry','0deg');s.style.setProperty('--rx','0deg')})})})();
+</script>
+<script type="module">
+const host=document.querySelector('.stage3d'),cv=document.getElementById('ring'),lab=document.getElementById('glabels');
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let THREE;
+try{
+  const t=document.createElement('canvas');if(!(t.getContext('webgl2')||t.getContext('webgl')))throw 0;
+  THREE=await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js');
+}catch(e){host.classList.add('nogl')}
+if(THREE){
+  const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;
+  const S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(38,1,.1,200);
+  S.add(new THREE.AmbientLight(0x8fb3ff,.7));const kl=new THREE.DirectionalLight(0xffffff,1.6);kl.position.set(4,8,6);S.add(kl);
+  const rim=new THREE.PointLight(0x59c9e8,40,30);rim.position.set(-6,3,-4);S.add(rim);
+  const C={cyan:0x59c9e8,amber:0xf2b544,green:0x5ee0a0,slate:0x2a4a74};
+  const world=new THREE.Group();world.rotation.x=.42;S.add(world);
+  const RAD=4.2,N=6,names=['Business','Data','Preparation','Build','Evaluate','Operate'];
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(RAD,.035,12,200),new THREE.MeshStandardMaterial({color:C.cyan,emissive:C.cyan,emissiveIntensity:.9}));ring.rotation.x=Math.PI/2;world.add(ring);
+  const inner=new THREE.Mesh(new THREE.TorusGeometry(RAD*.62,.012,8,160),new THREE.MeshBasicMaterial({color:C.cyan,transparent:true,opacity:.25}));inner.rotation.x=Math.PI/2;world.add(inner);
+  const disc=new THREE.Mesh(new THREE.CircleGeometry(RAD*1.05,96),new THREE.MeshBasicMaterial({color:0x0b1733,transparent:true,opacity:.55,side:THREE.DoubleSide}));disc.rotation.x=-Math.PI/2;disc.position.y=-.02;world.add(disc);
+  // glow sprite texture
+  const gc=document.createElement('canvas');gc.width=gc.height=128;const g=gc.getContext('2d'),gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.25,'rgba(255,255,255,.45)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);
+  const gtex=new THREE.CanvasTexture(gc);
+  const glow=(col,s)=>{const m=new THREE.Sprite(new THREE.SpriteMaterial({map:gtex,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));m.scale.setScalar(s);return m};
+  const ang=i=>-Math.PI/2+i*Math.PI*2/N;
+  const gates=names.map((n,i)=>{const a=ang(i),p=new THREE.Vector3(Math.cos(a)*RAD,0,Math.sin(a)*RAD);
+    const m=new THREE.Mesh(new THREE.OctahedronGeometry(.32,0),new THREE.MeshStandardMaterial({color:C.slate,emissive:C.cyan,emissiveIntensity:.25,metalness:.4,roughness:.3}));m.position.copy(p);m.scale.y=1.35;world.add(m);
+    const pole=new THREE.Mesh(new THREE.CylinderGeometry(.012,.012,1.1,6),new THREE.MeshBasicMaterial({color:C.cyan,transparent:true,opacity:.35}));pole.position.set(p.x,-.55,p.z);world.add(pole);
+    const gl=glow(C.green,1.8);gl.material.opacity=0;gl.position.copy(p);world.add(gl);
+    const el=document.createElement('span');el.textContent=n;lab.appendChild(el);return{m,gl,el,p,on:0}});
+  // the project token travelling the ring
+  const tok=new THREE.Mesh(new THREE.SphereGeometry(.2,32,20),new THREE.MeshStandardMaterial({color:C.amber,emissive:C.amber,emissiveIntensity:1.4}));world.add(tok);
+  const tglow=glow(C.amber,1.3);world.add(tglow);
+  const TR=60,trail=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.BufferAttribute(new Float32Array(TR*3),3)),new THREE.PointsMaterial({color:C.amber,size:.07,transparent:true,opacity:.75,blending:THREE.AdditiveBlending,depthWrite:false}));world.add(trail);
+  // data particles drifting around the ring
+  const NP=420,pp=new Float32Array(NP*3),pa=[];for(let i=0;i<NP;i++){const a=Math.random()*Math.PI*2,r=RAD*(.55+Math.random()*.7),y=(Math.random()-.5)*1.6;pa.push([a,r,y,.05+Math.random()*.12]);pp.set([Math.cos(a)*r,y,Math.sin(a)*r],i*3)}
+  const pts=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.BufferAttribute(pp,3)),new THREE.PointsMaterial({color:C.cyan,size:.035,transparent:true,opacity:.6,blending:THREE.AdditiveBlending,depthWrite:false}));world.add(pts);
+  // interaction: drag to turn, pointer parallax
+  let spin=0,vel=0,drag=null,px=0,py=0;
+  cv.addEventListener('pointerdown',e=>{drag=e.clientX;cv.setPointerCapture(e.pointerId)});
+  cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5;if(drag!==null){vel=(e.clientX-drag)*.004;spin+=vel;drag=e.clientX}});
+  addEventListener('pointerup',()=>drag=null);
+  const size=()=>{const w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;const far=w<700?16.5:16;cam.position.set(0,2.2,far);cam.lookAt(0,-.2,0);cam.updateProjectionMatrix()};
+  new ResizeObserver(size).observe(host);size();
+  const V=new THREE.Vector3(),hist=[];let t0=performance.now(),last=t0,vis=true;
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(host);
+  const LAP=12; // seconds per lap
+  function frame(now){requestAnimationFrame(frame);if(!vis)return;const dt=Math.min(.05,(now-last)/1000);last=now;const t=RM?LAP*.92:((now-t0)/1000)%LAP;
+    if(drag===null){vel*=.94;spin+=vel+(RM?0:dt*.06)}
+    world.rotation.y=spin;world.rotation.x=.42+py*.12;world.position.x=px*.4;
+    const f=t/LAP,a=-Math.PI/2+f*Math.PI*2;tok.position.set(Math.cos(a)*RAD,.05+Math.sin(now/300)*.03,Math.sin(a)*RAD);tglow.position.copy(tok.position);
+    hist.unshift(tok.position.clone());if(hist.length>TR)hist.pop();const ta=trail.geometry.attributes.position;hist.forEach((h,i)=>ta.setXYZ(i,h.x,h.y,h.z));ta.needsUpdate=true;
+    const passed=Math.floor(f*N+1e-6);
+    gates.forEach((G,i)=>{const isOn=i<passed||(f*N>i&&i===passed),near=Math.abs(((f*N-i)+N)%N)<.12;G.on+=((i<passed?1:0)-G.on)*Math.min(1,dt*4);
+      G.m.material.color.setHex(G.on>.5?C.green:C.slate);G.m.material.emissive.setHex(G.on>.5?C.green:C.cyan);G.m.material.emissiveIntensity=.25+G.on*.9;G.gl.material.opacity=G.on*.55+(near?.5:0);
+      G.m.rotation.y+=dt*(.6+G.on);const s=1+(near?.35:0);G.m.scale.set(s,s*1.35,s);
+      V.copy(G.p);V.y=-.62;world.localToWorld(V);V.project(cam);G.el.style.left=((V.x*.5+.5)*100)+'%';G.el.style.top=((-V.y*.5+.5)*100)+'%';G.el.style.opacity=V.z<1?1:0;
+      G.el.className=near?'cur':G.on>.5?'on':''});
+    const parr=pts.geometry.attributes.position;for(let i=0;i<NP;i++){const q=pa[i];q[0]+=dt*q[3]*.4;parr.setXYZ(i,Math.cos(q[0])*q[1],q[2]+Math.sin(now/1400+i)*.05,Math.sin(q[0])*q[1])}parr.needsUpdate=true;
+    R.render(S,cam)}
+  requestAnimationFrame(frame);
+}
 </script>
 </body>
 </html>
